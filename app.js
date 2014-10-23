@@ -1,7 +1,7 @@
 (function() {
     var modules = [
-        'ui.router',                    // router component
-        'ngAnimate',                    // Animation support
+        'ui.router', // Router component
+        'ngAnimate', // Animation support
     ];
 
     angular.module('transitionApp', modules);
