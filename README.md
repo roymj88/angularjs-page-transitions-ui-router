@@ -6,7 +6,9 @@ The project is aimed at creating hardware accelerated smooth page transitions us
 Due Credits:
 
 [AngularJS](http://angularjs.org)
+
 [AngularJS Style Guide - Todd Motto](http://toddmotto.com/opinionated-angular-js-styleguide-for-teams/)
+
 [Scotch Tutorial](http://scotch.io/tutorials/javascript/animating-angularjs-apps-ngview)
 
 
