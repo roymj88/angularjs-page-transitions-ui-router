@@ -1,36 +1,42 @@
-var transitionApp = angular.module('transitionApp', ['ui.router', 'ngAnimate']);
+(function() {
+    var modules = [
+        'ui.router',                    // router component
+        'ngAnimate',                    // Animation support
+    ];
 
-transitionApp.config(function($stateProvider, $urlRouterProvider) {
-    // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/home");
+    angular.module('transitionApp', modules);
 
-    $stateProvider
-    	.state('home', {
-            url: "/home",
-    		templateUrl: "page-home.html",
-            controller: "mainController"
-    	})
-    	.state("about", {
-            url: "/about",
-            templateUrl: "page-about.html",
-            controller: "aboutController"
-    	})
-    	.state("contact", {
-            url: "/contact",
-    		templateUrl: "page-contact.html",
-            controller: "contactController"
-    	});
+    function config($stateProvider, $urlRouterProvider) {
+        // For any unmatched url, redirect to /state1
+        $urlRouterProvider.otherwise("/home");
 
-});
+        $stateProvider
+            .state('home', {
+                url: "/home",
+                templateUrl: "page-home.html",
+                controller: "mainController"
+            })
+            .state("about", {
+                url: "/about",
+                templateUrl: "page-about.html",
+                controller: "aboutController"
+            })
+            .state("contact", {
+                url: "/contact",
+                templateUrl: "page-contact.html",
+                controller: "contactController"
+            });
 
-transitionApp.controller('mainController', function($scope) {
-    $scope.pageClass = 'page-home';
-});
+    }
 
-transitionApp.controller('aboutController', function($scope) {
-    $scope.pageClass = 'page-about';
-});
+    function run($rootScope, $state, $log) { 
+        $rootScope.back = function(){
+            alert("Back Clicked");
+        }
+    }
 
-transitionApp.controller('contactController', function($scope) {
-    $scope.pageClass = 'page-contact';
-});
+
+    angular.module('transitionApp').config(config);
+    angular.module('transitionApp').run(run);
+
+})();
